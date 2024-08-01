@@ -62,6 +62,39 @@ function ListDBs {
 	fi
 }
 
+
+
+
+function ConnectDB {
+	if [ -z "$(ls DataBases/ )" ]
+	then
+		echo "No DataBases found to connect"
+	fi
+
+	while true
+	do
+		read -p "Enter DataBase name: " DBName
+		ValInputName $DBName
+		if [ $? -eq 0 ]
+		then
+			break
+		fi
+	done
+
+	if [ ! -d "DataBases/$DBName" ]
+	then
+		echo "DataBase not found"
+	else
+		cd DataBases/$DBName
+		"Connected to $DBName DataBase successfully"
+
+	fi
+
+
+
+}
+
+
 function DropDB {
 
 	if [ -z "$(ls DataBases/)" ]
