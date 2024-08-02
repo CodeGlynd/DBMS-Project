@@ -52,7 +52,7 @@ function CreateDB {
 
 }
 
-function ListDBs {
+function ListDB {
 	if [ -n "$(ls DataBases/)" ]
 	then
 		echo "DataBases : "
@@ -125,6 +125,35 @@ function DropDB {
 
 
 
+
+
+#------------------------------Main Menu Script----------------------------------------
+
+PS2="DBMS->"
+
+PS3="Select from options: "
+
+Options=("Create DataBase" "List DataBases" "Connect DataBase" "Drop DataBase" "Exit")
+
+select choice in "${Options[@]}";
+do
+	case $choice in
+		"Creat DataBase") CreateDB
+			;;
+		"List DataBases") ListDB
+			;;
+		"Connect DataBase") ConnectDB
+			;;
+
+		"Drop DataBase") DropDB
+			;;
+		"Exit") exit
+			;;
+		*)
+			echo "Invalid option , try again."
+			;;
+	esac
+done
 
 
 
