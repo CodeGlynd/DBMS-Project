@@ -138,7 +138,7 @@ Options=("Create DataBase" "List DataBases" "Connect DataBase" "Drop DataBase" "
 select choice in "${Options[@]}";
 do
 	case $choice in
-		"Creat DataBase") CreateDB
+		"Create DataBase") CreateDB
 			;;
 		"List DataBases") ListDB
 			;;
