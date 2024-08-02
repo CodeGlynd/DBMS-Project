@@ -86,7 +86,7 @@ function ConnectDB {
 		echo "DataBase not found"
 	else
 		cd DataBases/$DBName
-		"Connected to $DBName DataBase successfully"
+		echo "Connected to $DBName DataBase successfully"
 
 	fi
 
