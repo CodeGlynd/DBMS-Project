@@ -32,6 +32,9 @@ function ValInputName {
 
 function CreateDB {
 	mkdir DataBases
+    	
+	typeset DBName
+
 	while true 
 	do
 		read -p "Enter DataBase Name: " DBName
@@ -66,6 +69,9 @@ function ListDB {
 
 
 function ConnectDB {
+
+	typeset DBName
+
 	if [ -z "$(ls DataBases/ )" ]
 	then
 		echo "No DataBases found to connect"
@@ -96,6 +102,8 @@ function ConnectDB {
 
 
 function DropDB {
+
+	typeset DBName
 
 	if [ -z "$(ls DataBases/)" ]
 	then 
