@@ -1,17 +1,18 @@
  
-Bash Shell Script Database Management System (DBMS):
+# Bash Shell Script Database Management System (DBMS)
 
-The Project aim to develop DBMS, that will enable users to store and retrieve the data from Hard-disk.
+#### The Project aims to develope DBMS, that will enable users to store and retrieve data from Hard-disk.
 
-The Project Features:
-The Application will be CLI Menu based app, that will provide to user this Menu items:
-Main Menu:
+## Project Features
+The Application will be CLI Menu based app, that will provide user with Main Menu items
+
 - Create Database
 - List Databases
 - Connect To Databases
 - Drop Database
 
-Upon user Connect to Specific Database, there will be new Screen with this Menu:
+Upon user Connection to Specific Database, a new multiple choose screen appears with the Menu
+
 - Create Table 
 - List Tables
 - Drop Table
