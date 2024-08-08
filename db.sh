@@ -1,37 +1,15 @@
 #!/bin/bash
 
-#---Input Name validation-------------------------------------
-
-function ValInputName {
-
-	if [ -z "$1" ]
-	then
-		echo "Name field can't be empty"
-		return 1
-
-	elif [[ $1 == *" "* ]]
-	then
-		echo "Name shouldn't include spaces"
-		return 1
-
-	elif [[ $1 =~ [^a-zA-Z0-9_] ]]
-	then
-		echo "Name shouldn't have special characters"
-		return 1
-
-	elif [[ "$1" =~ ^[0-9] ]]
-	then
-		echo "Name shouldn't begin with a number"
-		return 1
-	
-	fi
-}
+source ./validationfuncs.sh
 
 
 #-------------------------------Main Menu Functions----------------------------------
 
 function CreateDB {
 	mkdir DataBases
+    	
+	typeset DBName
+
 	while true 
 	do
 		read -p "Enter DataBase Name: " DBName
@@ -66,6 +44,9 @@ function ListDB {
 
 
 function ConnectDB {
+
+	typeset DBName
+
 	if [ -z "$(ls DataBases/ )" ]
 	then
 		echo "No DataBases found to connect"
@@ -97,6 +78,8 @@ function ConnectDB {
 
 function DropDB {
 
+	typeset DBName
+
 	if [ -z "$(ls DataBases/)" ]
 	then 
 		echo "No DataBases found"
@@ -105,6 +88,7 @@ function DropDB {
 	while true 
 	do
 		read -p "Enter DataBase name: " DBName
+
 
 		ValInputName $DBName
 		if [ $? -eq 0 ]
