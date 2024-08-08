@@ -1,33 +1,7 @@
 
-function CreateTable{
-}
-
-
-function ListTables{
-
-}
-
-function DropTable{
-}
-
-
-function InsertTable{
-}
-
-function SelectRec{
-}
-
-
-function DeleteRec{
-}
-
-function UpdateTable{
-
-}
-
 
 #--------------DataBase Tables selection menu-------------------------------------
-function ShowTablesMenu{
+function ShowTablesMenu {
 	
 
 	TableOptions=("Create Table" "List Tables" "Drop Table" "Insert" "Select" "Delete" "Update" "Exit")

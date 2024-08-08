@@ -1,6 +1,6 @@
 #!/bin/bash
-. ./connectDBfuncs.sh
-. ./validationfuncs.sh
+source ./connectDBfuncs.sh
+source ./validationfuncs.sh
 
 
 
