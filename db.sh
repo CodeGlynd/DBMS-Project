@@ -1,12 +1,16 @@
 #!/bin/bash
-
+source ./connectDBMenu.sh
 source ./validationfuncs.sh
+
 
 
 #-------------------------------Main Menu Functions----------------------------------
 
 function CreateDB {
-	mkdir DataBases
+	if [ ! -d "DataBases" ]
+	then
+		mkdir DataBases
+	fi
     	
 	typeset DBName
 
@@ -68,7 +72,7 @@ function ConnectDB {
 	else
 		cd DataBases/$DBName
 		echo "Connected to $DBName DataBase successfully"
-
+		ShowTablesMenu
 	fi
 
 
@@ -117,9 +121,9 @@ PS2="DBMS->"
 
 PS3="Select from options: "
 
-Options=("Create DataBase" "List DataBases" "Connect DataBase" "Drop DataBase" "Exit")
+MainOptions=("Create DataBase" "List DataBases" "Connect DataBase" "Drop DataBase" "Exit")
 
-select choice in "${Options[@]}";
+select choice in "${MainOptions[@]}";
 do
 	case $choice in
 		"Create DataBase") CreateDB
