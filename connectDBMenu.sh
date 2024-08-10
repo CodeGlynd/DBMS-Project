@@ -1,6 +1,9 @@
 #!/bin/bash
 
 source ./CreateTable.sh
+source ./List-Del-Table.sh
+
+
 
 #--------------DataBase Tables selection menu-------------------------------------
 function ShowTablesMenu {
