@@ -1,7 +1,10 @@
+#!/bin/bash
 
+source ./CreateTable.sh
 
 #--------------DataBase Tables selection menu-------------------------------------
 function ShowTablesMenu {
+	
 	
 
 	TableOptions=("Create Table" "List Tables" "Drop Table" "Insert" "Select" "Delete" "Update" "Exit")

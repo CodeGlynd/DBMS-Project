@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./connectDBfuncs.sh
+source ./connectDBMenu.sh
 source ./validationfuncs.sh
 
 
@@ -7,7 +7,10 @@ source ./validationfuncs.sh
 #-------------------------------Main Menu Functions----------------------------------
 
 function CreateDB {
-	mkdir DataBases
+	if [ ! -d "DataBases" ]
+	then
+		mkdir DataBases
+	fi
     	
 	typeset DBName
 

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #---Input Name validation-------------------------------------
 
 function ValInputName {
