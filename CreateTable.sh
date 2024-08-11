@@ -4,7 +4,7 @@ source ./validationfuncs.sh
 
 
 function CreateTable {
-	typeset tableName colsNumber colName colDataType counter=0 
+	typeset tableName colsNumber colName colDataType counter=0 RecordName RecordDataType
 	while true 
 	do
 		read -p "Enter table name: " tableName
@@ -58,9 +58,18 @@ function CreateTable {
 			esac
 		done
 
+		
+		RecordName="$colName"
+		RecordDataType="$colDataType"
+
+		echo $RecordDataType >> "${tableName}-meta.txt"
+		echo $RecordName >> "${tableName}-meta.txt"
+		
 
 		let counter=counter+1
 	done
+
+	
 
 		cd ../
 	}
