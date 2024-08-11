@@ -2,6 +2,7 @@
 
 source ./CreateTable.sh
 source ./List-Del-Table.sh
+source ./InsertTable.sh
 
 
 
