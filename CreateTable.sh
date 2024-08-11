@@ -4,7 +4,7 @@ source ./validationfuncs.sh
 
 
 function CreateTable {
-	typeset tableName colsNumber colName colDataType counter=0 
+	typeset tableName colsNumber colName colDataType counter=0 recordName="" recordDataType=""
 	while true 
 	do
 		read -p "Enter table name: " tableName
@@ -33,7 +33,7 @@ function CreateTable {
 		read -p "Enter number of columns: " colsNumber
 		if [[ ! $colsNumber =~ ^[0-9]+$ ]]
 		then
-			echo "number of columns should be integar"
+			echo "number of columns should be integer"
 			exit 
 		elif [[ $colsNumber -eq 0 ]]
 		then
@@ -50,17 +50,30 @@ function CreateTable {
 		echo "choose column data type: "
 
 
-		select colDataType in "string" "integar"
+		select colDataType in "string" "integer"
 		do
 			case $colDataType in
-				"integar" | "string" ) break ;;
+				"integer" | "string" ) break ;;
 				*) echo "invalid data type" ;;
 			esac
 		done
 
 
+		if [ $counter -eq $((colsNumber-1)) ]
+		then
+			recordName="${recordName}${colName}"
+			recordDataType="${recordDataType}${colDataType}"
+		else
+			recordName="${recordName}${colName}:"
+			recordDataType="${recordDataType}${colDataType}:"
+		fi
+
 		let counter=counter+1
 	done
+	
+	echo $recordDataType >> "${tableName}-meta.txt"
+	echo $recordName >> "${tableName}-meta.txt"
+	
 
 		cd ../
 	}
