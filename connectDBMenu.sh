@@ -12,7 +12,7 @@ function ShowTablesMenu {
 	
 	
 
-	TableOptions=("Create Table" "List Tables" "Drop Table" "Insert" "Select" "Delete" "Update" "Exit")
+	TableOptions=("Create Table" "List Tables" "Drop Table" "Insert" "Select" "Delete" "Edit" "Exit")
 	select TableChoice in "${TableOptions[@]}";
 	do 
 		case $TableChoice in 
@@ -28,7 +28,7 @@ function ShowTablesMenu {
 				;;
 			"Delete") DeleteRec
 				;;
-			"Update") UpdateTable
+			"Edit") EditTable
 				;;
 			"Exit")
 				cd ../..
