@@ -4,6 +4,7 @@ source ./CreateTable.sh
 source ./List-Del-Table.sh
 source ./InsertTable.sh
 source ./SelectRecord.sh
+source ./DeleteRecord.sh
 
 
 #--------------DataBase Tables selection menu-------------------------------------

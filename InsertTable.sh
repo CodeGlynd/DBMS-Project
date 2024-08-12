@@ -48,14 +48,14 @@ function InsertTable {
 		  read -p "enter value of ${colName} in ${colDataType}: " colValue
 		  ValDataType "$colValue" "$colDataType"
 
-		#   if [ $counter -eq 0 ]
-		#   then
-		# 	  if [ ! -z "$(grep ^${colValue} ${tableName}/${tableName}.txt)" ]
-		# 	  then
-		# 		  echo "primary key value exists, choose another one."
-		# 		  continue
-		# 	  fi
-		#   fi
+		  if [ $counter -eq 0 ]
+		  then
+			  if [ ! -z "$(grep ^${colValue} ${tableName}/${tableName}.txt)" ]
+			  then
+				  echo "primary key value exists, choose another one."
+				  continue
+			  fi
+		  fi
 		  
 
 		  if [ $? -eq 0 ]
