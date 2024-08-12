@@ -30,7 +30,7 @@ function DeleteRec {
         return
     fi
 
-    if [ -s "$ tableName/$ tableName.txt" ]
+    if [ -z "$(cat "${tableName}/${tableName}.txt")" ]
     then
         echo "Table $tableName is empty."
         return

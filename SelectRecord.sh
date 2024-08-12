@@ -28,7 +28,7 @@ function SelectRec {
 		return
 	fi
 
-	if [ -s "$tableName/$tablename.txt" ]
+	if [ -z "$(cat "${tableName}/${tableName}.txt")" ]
 	then
 		echo "Table $tableName is empty"
 		return
