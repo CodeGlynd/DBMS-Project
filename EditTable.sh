@@ -54,9 +54,13 @@ function EditTable {
 		return
 	fi
 	
-	colNum=$(awk -F: '{ for (i=1 ; i<=NF ; i++) { if ($i == "$colName") { print i ; exit} } }' "${tableName}/${tableName}-meta.txt")
+	colNum=$(awk -F: '{ for (i = 1; i <= NF; i++) if ($i == "'"$colName"'") { print i; exit } }' "${tableName}/${tableName}-meta.txt")
+	
+	#additional test line
+	echo "colNum: $colNum"
 
-	oldValue= $( grep "^${pk}" ${tableName}/${tableName}.txt | cut -d ':' -f "${colNum}" ) 
+
+	oldValue=$( grep "^${pk}" "${tableName}/${tableName}.txt" | cut -d ':' -f "$colNum" ) 
 
 
 	read -p "Enter new value: " newValue
@@ -65,6 +69,9 @@ function EditTable {
 
 
 }
+
+
+
 
 
 
