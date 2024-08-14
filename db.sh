@@ -117,7 +117,7 @@ function DropDB {
 
 #------------------------------Main Menu Script----------------------------------------
 
-PS2="DBMS->"
+
 
 PS3="Select from options: "
 
