@@ -47,10 +47,15 @@ function InsertTable {
 	  do
 		  read -p "enter value of ${colName} in ${colDataType}: " colValue
 		  ValDataType "$colValue" "$colDataType"
-
+		  if [ $? -eq 1 ]
+		  then
+			  continue
+		  fi
+		  
+		  pkCompare=$(awk -F: '{print $1}' "${tableName}/${tableName}.txt" | grep -w ${colValue})
 		  if [ $counter -eq 0 ]
 		  then
-			  if [ ! -z "$(grep ^${colValue} ${tableName}/${tableName}.txt)" ]
+			  if [ "$colValue" == "$pkCompare"  ]
 			  then
 				  echo "primary key value exists, choose another one."
 				  continue

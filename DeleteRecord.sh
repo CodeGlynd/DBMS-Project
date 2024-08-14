@@ -39,12 +39,15 @@ function DeleteRec {
     
 
 	read -p "Enter Record primary key value: " pk
+
+	typeset pkCompare=$(awk -F: '{print $1}' "${tableName}/${tableName}.txt" | grep -w ${pk})
+
 	while true
 	do
-		if [ ! -z "$(grep ^${pk} ${tableName}/${tableName}.txt)" ]
+		if [ ! -z "$pkCompare" ]
 		then
-			sed -i "/^${pk}/d" "${tableName}/${tableName}.txt"
-			echo "Record of primary key ${pk} deleted successfully"
+			sed -i '/^'"${pkCompare}"':/d' "${tableName}/${tableName}.txt"
+                	echo "Record of primary key ${pk} deleted successfully"
 			break
 		else
 			echo "Record doesn't exist"

@@ -40,7 +40,9 @@ function EditTable {
 
 	read -p "Enter Record primary key value: " pk
 
-	if [ -z "$(grep ^${pk} ${tableName}/${tableName}.txt)" ]
+	typeset pkCompare=$(awk -F: '{print $1}' "${tableName}/${tableName}.txt" | grep -w ${pk})
+
+	if [ -z "$pkCompare" ]
 	then
 		echo "Record not found, try again"
 		return
@@ -60,12 +62,17 @@ function EditTable {
 	echo "colNum: $colNum"
 
 
-	oldValue=$( grep "^${pk}" "${tableName}/${tableName}.txt" | cut -d ':' -f "$colNum" ) 
-
+	# Assuming $pk, $tableName, and $colNum are properly set
+	oldValue=$(awk -F: -v pk="$pk" -v colNum="$colNum" '$1 == pk {print $colNum}' "${tableName}/${tableName}.txt")
+ 
+	
+	#additional test line case
+	echo "oldvalue: $oldValue"
 
 	read -p "Enter new value: " newValue
 
-	sed -i "/^$pk/s/$oldValue/$newValue/" "${tableName}/${tableName}.txt"
+	sed -i "/^${pkCompare}:/s/:${oldValue}:/:${newValue}:/" "${tableName}/${tableName}.txt"
+	echo "${colName} value of record ${pk} pk updated from ${oldValue} to ${newValue}"
 
 
 }
