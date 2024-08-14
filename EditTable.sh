@@ -59,15 +59,15 @@ function EditTable {
 	colNum=$(awk -F: '{ for (i = 1; i <= NF; i++) if ($i == "'"$colName"'") { print i; exit } }' "${tableName}/${tableName}-meta.txt")
 	
 	#additional test line
-	echo "colNum: $colNum"
+	echo "column number: $colNum"
 
 
-	# Assuming $pk, $tableName, and $colNum are properly set
+	
 	oldValue=$(awk -F: -v pk="$pk" -v colNum="$colNum" '$1 == pk {print $colNum}' "${tableName}/${tableName}.txt")
  
 	
 	#additional test line case
-	echo "oldvalue: $oldValue"
+	echo "old value: $oldValue"
 
 	read -p "Enter new value: " newValue
 
