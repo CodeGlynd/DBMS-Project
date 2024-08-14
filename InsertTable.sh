@@ -52,10 +52,10 @@ function InsertTable {
 			  continue
 		  fi
 		  
-
+		  pkCompare=$(awk -F: '{print $1}' "${tableName}/${tableName}.txt")
 		  if [ $counter -eq 0 ]
 		  then
-			  if [ ! -z "$(grep ^${colValue} ${tableName}/${tableName}.txt)" ]
+			  if [ "$colValue" == "$pkCompare"  ]
 			  then
 				  echo "primary key value exists, choose another one."
 				  continue
