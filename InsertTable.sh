@@ -47,6 +47,11 @@ function InsertTable {
 	  do
 		  read -p "enter value of ${colName} in ${colDataType}: " colValue
 		  ValDataType "$colValue" "$colDataType"
+		  if [ $? -eq 1 ]
+		  then
+			  continue
+		  fi
+		  
 
 		  if [ $counter -eq 0 ]
 		  then
