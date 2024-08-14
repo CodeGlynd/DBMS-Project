@@ -52,7 +52,7 @@ function InsertTable {
 			  continue
 		  fi
 		  
-		  pkCompare=$(awk -F: '{print $1}' "${tableName}/${tableName}.txt")
+		  pkCompare=$(awk -F: '{print $1}' "${tableName}/${tableName}.txt" | grep -w ${colValue})
 		  if [ $counter -eq 0 ]
 		  then
 			  if [ "$colValue" == "$pkCompare"  ]
