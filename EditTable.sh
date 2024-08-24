@@ -71,7 +71,7 @@ function EditTable {
 
 	read -p "Enter new value: " newValue
 
-	sed -i "/^${pkCompare}:/s/:${oldValue}:/:${newValue}:/" "${tableName}/${tableName}.txt"
+	sed -i "/^${pk}:/s/${oldValue}/${newValue}/" "${tableName}/${tableName}.txt"
 	echo "${colName} value of record ${pk} pk updated from ${oldValue} to ${newValue}"
 
 
