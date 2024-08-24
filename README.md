@@ -23,7 +23,13 @@ Upon user Connection to Specified Database, a new multiple choose screen appears
 - Edit and update table
 
 ----
+## Eyes on project
 
+https://github.com/user-attachments/assets/3ff57897-cd24-438d-a87e-234a9360dd84
+
+
+
+----
 ## install and run
 
 ```bash
@@ -31,5 +37,6 @@ git clone https://github.com/CodeGlynd/DBMS-Project.git
 sudo chmod +x db.sh
 bash db.sh
 ```
+
 
 
